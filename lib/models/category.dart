@@ -10,7 +10,7 @@ class Category {
 }
 
 List<Category> categories = [
-  Category(9, "General Knowledge", icon: FontAwesomeIcons.globeAsia),
+  Category(9, "General Knowledge", icon: FontAwesomeIcons.globeAfrica),
   Category(10, "Books", icon: FontAwesomeIcons.bookOpen),
   Category(11, "Film", icon: FontAwesomeIcons.video),
   Category(12, "Music", icon: FontAwesomeIcons.music),

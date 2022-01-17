@@ -41,19 +41,19 @@ class Result extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    Container(
-                      child: SvgPicture.asset(
-                        getEmoji(
-                          (correct / question.length * 100).toInt(),
-                        ),
-                        alignment: Alignment.center,
+                    // SizedBox(
+                    //   height: 10.0,
+                    // ),
+                    // Container(
+                    //   child: SvgPicture.asset(
+                    //     getEmoji(
+                    //       (correct / question.length * 100).toInt(),
+                    //     ),
+                    //     alignment: Alignment.center,
                         
-                        height: 150.0,
-                      ),
-                    ),
+                    //     height: 150.0,
+                    //   ),
+                    // ),
                     SizedBox(
                       height: 10.0,
                     ),
@@ -82,7 +82,7 @@ class Result extends StatelessWidget {
               Container(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xff253445),
+                    primary: Colors.green[700],
                   ),
                   onPressed: () {
                     Navigator.pop(context);
@@ -103,7 +103,7 @@ class Result extends StatelessWidget {
               Container(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xff253445),
+                    primary: Colors.red[700],
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -163,7 +163,8 @@ class ReUsableListTile extends StatelessWidget {
   }
 }
 
-String getEmoji(int val) {
+String getEmoji(int val)
+{
   String path = 'assets/svg/';
   if (val >= 80) {
     return '${path + 'lovely.svg'}';

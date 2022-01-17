@@ -117,7 +117,7 @@ class _QuizState extends State<Quiz> {
                 Container(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      primary: Color(0xff253445),
+                      primary: Colors.green,
                     ),
                     onPressed: () async {
                       _submit();
