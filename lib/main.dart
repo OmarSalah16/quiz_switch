@@ -1,15 +1,18 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:opentrivia_quiz_game_final/view/intro.dart';
 
-void main() {runApp(MyApp());}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
-class MyApp extends StatelessWidget
-{
+class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return MaterialApp(
       title: 'OpenTrivia',
       debugShowCheckedModeBanner: false,
@@ -21,39 +24,32 @@ class MyApp extends StatelessWidget
   }
 }
 
-class SplashScreen extends StatefulWidget
-{
+class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState()
-  {
+  void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () 
-    {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => Intro()));
+    Timer(const Duration(seconds: 3), () {
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (_) => Intro()));
     });
   }
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff393d4e),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children:
-          [
-            Image.asset('assets/otdb.png')
-          ],
+          children: [Image.asset('assets/otdb.png')],
         ),
       ),
     );
   }
 }
-

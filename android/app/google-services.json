@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "519276499854",
+    "project_id": "quiz-app-6c05a",
+    "storage_bucket": "quiz-app-6c05a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519276499854:android:131d614e0e66cd2cca8adf",
+        "android_client_info": {
+          "package_name": "com.example.opentrivia_quiz_game_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519276499854-jt491q6l7l7unu1qftjphptl9ill1v18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXTDuV64ySP1tgp74wrB7HPT5Rqu9crIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519276499854-jt491q6l7l7unu1qftjphptl9ill1v18.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
