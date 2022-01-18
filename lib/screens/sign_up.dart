@@ -139,7 +139,7 @@ class _RegisterationState extends State<RegisterationScreen> {
       validator: (value) {
         if (confirmPasswordEditingController.text !=
             passwordEditingController.text) {
-          return "Password don't match";
+          return "Passwords don't match";
         }
         return null;
       },
@@ -164,7 +164,7 @@ class _RegisterationState extends State<RegisterationScreen> {
           signUp(emailEditingController.text, passwordEditingController.text);
         },
         child: Text(
-          "Signup",
+          "Sign Up",
           textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),

@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
           systemOverlayStyle: SystemUiOverlayStyle(
             statusBarColor: Theme.of(context).primaryColor,
           ),
-          title: Text('OpenTrivia Quiz Game'),
+          title: Text('Quizology'),
         ),
         body: ListView.builder(
             physics: BouncingScrollPhysics(),

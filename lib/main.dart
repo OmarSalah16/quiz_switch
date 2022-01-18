@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'OpenTrivia',
+      title: 'Quizology',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: const Color(0xff393d4e),
@@ -47,7 +47,11 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [Image.asset('assets/otdb.png')],
+          children: 
+          [
+            Image.asset('assets/splash.png', height: 150),
+            Text("Quizology", style: TextStyle(color: Color(0xffff7126), fontSize: 20, fontWeight: FontWeight.w700))
+          ],
         ),
       ),
     );
