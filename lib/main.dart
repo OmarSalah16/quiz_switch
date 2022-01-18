@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:opentrivia_quiz_game_final/view/intro.dart';
+import 'package:opentrivia_quiz_game_final/screens/intro.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

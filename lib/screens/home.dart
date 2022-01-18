@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:opentrivia_quiz_game_final/models/category.dart';
+import 'package:opentrivia_quiz_game_final/screens/sign_in.dart';
 import 'package:opentrivia_quiz_game_final/widgets/options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -63,10 +65,11 @@ class _HomeState extends State<Home> {
             ),
             ListTile(
               title: const Text('Sign Out',
-                  style: TextStyle(fontSize: 20, color: Colors.indigo)),
+                  style: TextStyle(fontSize: 20, color: Color(0xff393d4e))),
               onTap: () {
+                signOut();
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (_) => Home()));
+                    context, MaterialPageRoute(builder: (_) => Login()));
               },
             ),
           ],
@@ -85,5 +88,16 @@ class _HomeState extends State<Home> {
             itemBuilder: (context, index) => _buildList(index)),
       ),
     );
+  }
+}
+
+void signOut() async {
+  final _auth = FirebaseAuth.instance;
+  //await _auth.signOut();
+  try {
+    await _auth.signOut();
+    Fluttertoast.showToast(msg: "signout Successful");
+  } catch (error) {
+    Fluttertoast.showToast(msg: "signout not Successful");
   }
 }

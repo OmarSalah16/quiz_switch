@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, unused_field, unused_local_variable, unnecessary_new, avoid_print, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:opentrivia_quiz_game_final/view/home.dart';
+import 'package:opentrivia_quiz_game_final/screens/home.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:opentrivia_quiz_game_final/view/sign_up.dart';
+import 'package:opentrivia_quiz_game_final/screens/sign_up.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {

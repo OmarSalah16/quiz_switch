@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:opentrivia_quiz_game_final/view/sign_in.dart';
+import 'package:opentrivia_quiz_game_final/screens/sign_in.dart';
 
 class Intro extends StatelessWidget {
   const Intro({Key? key}) : super(key: key);

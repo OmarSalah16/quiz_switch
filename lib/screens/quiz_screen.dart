@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:opentrivia_quiz_game_final/models/category.dart';
 import 'package:opentrivia_quiz_game_final/models/question.dart';
-import 'package:opentrivia_quiz_game_final/view/result_screen.dart';
+import 'package:opentrivia_quiz_game_final/screens/result_screen.dart';
 
 class Quiz extends StatefulWidget {
   final List<Question> question;
@@ -55,7 +55,7 @@ class _QuizState extends State<Quiz> {
                         '${_currentIndex + 1}',
                         style: TextStyle(
                           fontSize: 20.0,
-                          color : Color(0xff6C7C8D),
+                          color: Color(0xff6C7C8D),
                         ),
                       ),
                       alignment: Alignment.center,

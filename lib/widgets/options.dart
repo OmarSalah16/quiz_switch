@@ -6,10 +6,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:opentrivia_quiz_game_final/api_provider/question_api.dart';
 import 'package:opentrivia_quiz_game_final/models/category.dart';
 import 'package:opentrivia_quiz_game_final/models/question.dart';
-import 'package:opentrivia_quiz_game_final/view/quiz_screen.dart';
+import 'package:opentrivia_quiz_game_final/screens/quiz_screen.dart';
 
 import 'custom_action_chip.dart';
-
 
 class Options extends StatefulWidget {
   final Category category;
@@ -25,8 +24,7 @@ class _OptionsState extends State<Options> {
   late bool processing;
 
   @override
-  void initState()
-  {
+  void initState() {
     _noOfQuestion = 10;
     _difficulty = 'Easy';
     processing = false;
@@ -45,8 +43,7 @@ class _OptionsState extends State<Options> {
     });
   }
 
-  _startQuiz() async
-  {
+  _startQuiz() async {
     if (this.mounted) {
       setState(() {
         processing = true;
@@ -54,7 +51,8 @@ class _OptionsState extends State<Options> {
     }
 
     try {
-      List<Question> question = await getQuestions(widget.category, _noOfQuestion, _difficulty);
+      List<Question> question =
+          await getQuestions(widget.category, _noOfQuestion, _difficulty);
       if (question.length < 1) {
         Fluttertoast.showToast(
           backgroundColor: Theme.of(context).primaryColor,
@@ -105,8 +103,7 @@ class _OptionsState extends State<Options> {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children:
-        [
+        children: [
           Text('Select Total No of Question'),
           Wrap(
             alignment: WrapAlignment.center,
@@ -172,8 +169,9 @@ class _OptionsState extends State<Options> {
             ],
           ),
           SizedBox(height: 15.0),
-          processing ? CircularProgressIndicator(color: Theme.of(context).primaryColor): Container
-          (
+          processing
+              ? CircularProgressIndicator(color: Theme.of(context).primaryColor)
+              : Container(
                   width: double.infinity,
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
