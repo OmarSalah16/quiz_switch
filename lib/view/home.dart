@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:opentrivia_quiz_game_final/models/category.dart';
 import 'package:opentrivia_quiz_game_final/widgets/options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -9,21 +10,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
-  Widget _buildList(int index)
-  {
+  Widget _buildList(int index) {
     Category category = categories[index];
-    return MaterialButton
-    (
-      onPressed: () async
-      {
-        showDialog
-        (
+    return MaterialButton(
+      onPressed: () async {
+        showDialog(
           barrierColor: Theme.of(context).primaryColor,
           context: context,
           builder: (context) => AlertDialog(
-            title: Text
-            (
+            title: Text(
               category.name,
               textAlign: TextAlign.center,
             ),
@@ -33,13 +28,10 @@ class _HomeState extends State<Home> {
       },
       color: Colors.white,
       padding: EdgeInsets.all(10.0),
-      child: ListTile
-      (
-        title: Text
-        (
+      child: ListTile(
+        title: Text(
           category.name,
-          style: TextStyle
-          (
+          style: TextStyle(
             color: Color(0xff6C7C8D),
           ),
         ),
@@ -58,6 +50,27 @@ class _HomeState extends State<Home> {
         systemNavigationBarColor: Theme.of(context).primaryColor,
       ),
       child: Scaffold(
+        drawer: Drawer(
+            child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color(0xff393d4e),
+              ),
+              child: Text('Welcome, Guest.',
+                  style: TextStyle(fontSize: 20, color: Colors.white)),
+            ),
+            ListTile(
+              title: const Text('Sign Out',
+                  style: TextStyle(fontSize: 20, color: Colors.indigo)),
+              onTap: () {
+                Navigator.pushReplacement(
+                    context, MaterialPageRoute(builder: (_) => Home()));
+              },
+            ),
+          ],
+        )),
         backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
@@ -66,12 +79,10 @@ class _HomeState extends State<Home> {
           ),
           title: Text('OpenTrivia Quiz Game'),
         ),
-        body: ListView.builder
-        (
-          physics: BouncingScrollPhysics(),
-          itemCount: categories.length,
-          itemBuilder: (context, index) => _buildList(index)
-        ),
+        body: ListView.builder(
+            physics: BouncingScrollPhysics(),
+            itemCount: categories.length,
+            itemBuilder: (context, index) => _buildList(index)),
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:opentrivia_quiz_game_final/custom_functions/result.dart';
 import 'package:opentrivia_quiz_game_final/models/question.dart';
 
 import 'answer_screen.dart';
@@ -41,25 +40,13 @@ class Result extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    // SizedBox(
-                    //   height: 10.0,
-                    // ),
-                    // Container(
-                    //   child: SvgPicture.asset(
-                    //     getEmoji(
-                    //       (correct / question.length * 100).toInt(),
-                    //     ),
-                    //     alignment: Alignment.center,
-                        
-                    //     height: 150.0,
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 10.0,
                     ),
                     ReUsableListTile(
                       leading: 'Score',
-                      trailing: '${(correct / question.length * 100).toStringAsFixed(1)}% / 100%',
+                      trailing:
+                          '${(correct / question.length * 100).toStringAsFixed(1)}% / 100%',
                     ),
                     ReUsableListTile(
                       leading: 'Correct Answer',
@@ -108,7 +95,7 @@ class Result extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      CupertinoPageRoute(
+                      MaterialPageRoute(
                         builder: (context) => Answer(
                           answer: answer,
                           question: question,
@@ -163,8 +150,7 @@ class ReUsableListTile extends StatelessWidget {
   }
 }
 
-String getEmoji(int val)
-{
+String getEmoji(int val) {
   String path = 'assets/svg/';
   if (val >= 80) {
     return '${path + 'lovely.svg'}';

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:html_unescape/html_unescape.dart';
 import 'package:opentrivia_quiz_game_final/models/question.dart';
@@ -10,79 +12,98 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text('Answers'),
-      ),
-      body: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        itemCount: question.length,
-        itemBuilder: (context, index) {
-          bool correct = question[index].correct_answer == answer[index];
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Theme.of(context).primaryColor,
+          title: Text('Answers'),
+        ),
+        body: Column(
+          children: [
+            Expanded(
+                child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              itemCount: question.length,
+              itemBuilder: (context, index) {
+                bool correct = question[index].correct_answer == answer[index];
 
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 4.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(3.0),
-              ),
-              padding: EdgeInsets.all(8.0),
-              child: ListBody(
-                children: [
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Text(
-                      HtmlUnescape().convert(
-                        question[index].question,
-                      ),
-                      style: TextStyle(
-                        fontSize: 17.0,
-                        color: Color(0xff6C7C8D),
-                      ),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 2.0, horizontal: 4.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(3.0),
                     ),
-                  ),
-                  Text(
-                    HtmlUnescape().convert(
-                      '${answer[index]}',
-                    ),
-                    style: TextStyle(
-                      color: correct ? Colors.green : Colors.red,
-                      fontSize: 17.0,
-                    ),
-                  ),
-                  correct
-                      ? Container()
-                      : Text.rich(
-                          TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'Answer : ',
-                                style: TextStyle(
-                                  fontSize: 17.0,
-                                  color: Color(0xff6C7C8D),
-                                ),
-                              ),
-                              TextSpan(
-                                text: HtmlUnescape().convert(
-                                  '${question[index].correct_answer}',
-                                ),
-                                style: TextStyle(
-                                  fontSize: 17.0,
-                                  color: Color(0xff6C7C8D),
-                                ),
-                              ),
-                            ],
+                    padding: EdgeInsets.all(8.0),
+                    child: ListBody(
+                      children: [
+                        ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          title: Text(
+                            HtmlUnescape().convert(
+                              question[index].question,
+                            ),
+                            style: TextStyle(
+                              fontSize: 17.0,
+                              color: Color(0xff6C7C8D),
+                            ),
                           ),
                         ),
-                ],
+                        Text(
+                          HtmlUnescape().convert(
+                            '${answer[index]}',
+                          ),
+                          style: TextStyle(
+                            color: correct ? Colors.green : Colors.red,
+                            fontSize: 17.0,
+                          ),
+                        ),
+                        correct
+                            ? Container()
+                            : Text.rich(
+                                TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Answer : ',
+                                      style: TextStyle(
+                                        fontSize: 17.0,
+                                        color: Color(0xff6C7C8D),
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: HtmlUnescape().convert(
+                                        '${question[index].correct_answer}',
+                                      ),
+                                      style: TextStyle(
+                                        fontSize: 17.0,
+                                        color: Color(0xff6C7C8D),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            )),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green[700],
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                'Home',
+                style: TextStyle(
+                  fontSize: 18.0,
+                ),
               ),
             ),
-          );
-        },
-      ),
-    );
+          ],
+        ));
   }
 }
