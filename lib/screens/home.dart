@@ -96,8 +96,8 @@ void signOut() async {
   //await _auth.signOut();
   try {
     await _auth.signOut();
-    Fluttertoast.showToast(msg: "signout Successful");
+    Fluttertoast.showToast(msg: "Sign out Successful");
   } catch (error) {
-    Fluttertoast.showToast(msg: "signout not Successful");
+    Fluttertoast.showToast(msg: "Sign out Unsuccessful");
   }
 }
