@@ -1,9 +1,15 @@
-class Users {
+import 'package:opentrivia_quiz_game_final/models/category.dart';
+
+class Users
+{
   late String? email;
   late String uid;
   late String firstName;
   late String lastName;
-  Map<String, dynamic> toMap(Users user) {
+  late List<Category> favorites;
+
+  Map<String, dynamic> toMap(Users user)
+  {
     var data = Map<String, dynamic>();
 
     data["uid"] = user.uid;

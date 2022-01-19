@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:opentrivia_quiz_game_final/models/question.dart';
+import 'package:opentrivia_quiz_game_final/screens/home.dart';
 
 import 'answer_screen.dart';
 
@@ -72,7 +71,7 @@ class Result extends StatelessWidget {
                     primary: Colors.green[700],
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Home()));
                   },
                   child: Text(
                     'Home',
@@ -93,7 +92,7 @@ class Result extends StatelessWidget {
                     primary: Colors.red[700],
                   ),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => Answer(
@@ -150,17 +149,17 @@ class ReUsableListTile extends StatelessWidget {
   }
 }
 
-String getEmoji(int val) {
-  String path = 'assets/svg/';
-  if (val >= 80) {
-    return '${path + 'lovely.svg'}';
-  } else if (val >= 60) {
-    return '${path + 'not_bad.svg'}';
-  } else if (val >= 40) {
-    return '${path + 'tooth_crunch.svg'}';
-  } else if (val >= 20) {
-    return '${path + 'cry.svg'}';
-  } else {
-    return '${path + 'total_fail.svg'}';
-  }
-}
+// String getEmoji(int val) {
+//   String path = 'assets/svg/';
+//   if (val >= 80) {
+//     return '${path + 'lovely.svg'}';
+//   } else if (val >= 60) {
+//     return '${path + 'not_bad.svg'}';
+//   } else if (val >= 40) {
+//     return '${path + 'tooth_crunch.svg'}';
+//   } else if (val >= 20) {
+//     return '${path + 'cry.svg'}';
+//   } else {
+//     return '${path + 'total_fail.svg'}';
+//   }
+// }

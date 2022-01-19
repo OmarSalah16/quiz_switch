@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CustomActionChip extends StatelessWidget {
+class CustomActionChip extends StatelessWidget
+{
   final String name;
   final Color backGroundColor;
   final void Function() onPressed;
-  CustomActionChip(
-      {this.backGroundColor = Colors.blueGrey,
-      required this.name,
-      required this.onPressed});
+  CustomActionChip
+  ({
+    this.backGroundColor = Colors.blueGrey,
+    required this.name,
+    required this.onPressed
+  });
 
   @override
   Widget build(BuildContext context) {

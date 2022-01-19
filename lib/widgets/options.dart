@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:opentrivia_quiz_game_final/api_provider/question_api.dart';
 import 'package:opentrivia_quiz_game_final/models/category.dart';
 import 'package:opentrivia_quiz_game_final/models/question.dart';
+import 'package:opentrivia_quiz_game_final/models/user.dart';
 import 'package:opentrivia_quiz_game_final/screens/quiz_screen.dart';
 
 import 'custom_action_chip.dart';
@@ -92,18 +92,22 @@ class _OptionsState extends State<Options> {
     }
   }
 
-  // @override
-  // void dispose() {
-  //   print('Options Dispose was called');
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          Row
+          (
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:
+            [
+              Text('Add to Favorites?'),
+              FavoriteWidget()
+            ],
+          ),
+          SizedBox(height: 20.0),
           Text('Select Total No of Question'),
           Wrap(
             alignment: WrapAlignment.center,
@@ -195,5 +199,40 @@ class _OptionsState extends State<Options> {
         ],
       ),
     );
+  }
+}
+
+
+class FavoriteWidget extends StatefulWidget {
+  @override
+  _FavoriteWidgetState createState() => _FavoriteWidgetState();
+}
+
+class _FavoriteWidgetState extends State<FavoriteWidget> {
+  bool _isFavorited = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        IconButton(
+          onPressed: _toggleFavorite,
+          icon: _isFavorited ? Icon(Icons.star) : Icon(Icons.star_border),
+          color: Colors.red[500],
+        )
+      ],
+    );
+  }
+
+  _toggleFavorite() {
+    setState(() {
+      if (_isFavorited) {
+        _isFavorited = false;
+
+      } else {
+        _isFavorited = true;
+      }
+    });
   }
 }

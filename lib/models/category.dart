@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Category {
+class Category
+{
   final int id;
   final String name;
   final IconData icon;
@@ -9,7 +10,8 @@ class Category {
   Category(this.id, this.name, {required this.icon});
 }
 
-List<Category> categories = [
+List<Category> categories =
+[
   Category(9, "General Knowledge", icon: FontAwesomeIcons.globeAfrica),
   Category(10, "Books", icon: FontAwesomeIcons.bookOpen),
   Category(11, "Film", icon: FontAwesomeIcons.video),
